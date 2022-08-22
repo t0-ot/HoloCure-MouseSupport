@@ -1,21 +1,37 @@
-# HoloCure MouseSupport
+# HoloCure MouseSupport :computer_mouse:
 [![Github License](https://flat.badgen.net/badge/license/MIT/blue)](https://raw.githubusercontent.com/t0-ot/HoloCure-MouseSupport/main/LICENSE)
-[![Language](https://img.shields.io/badge/Language-GameMaker%20Language-green&?style=flat-square&logo=data%3Aimage%2Fpng%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAMAAAAolt3jAAAAZlBMVEX%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2BrG8stAAAAIXRSTlMABg0OFBkfcn1%2Bf4CBgoOFhoeIiouWmNDa5ebp8PX2%2B%2F6o6Vq%2BAAAAY0lEQVR42k2OWQ6AIAwFn%2BIOioobrnD%2FS4o0EeanmQxNAdErRFTWtsFq6%2BiiZozz0CSnTjYBwo0RkF8DWDLf51Ni9K%2FYdq0Fy3KAfzk97M7goK1F%2F4rGH9Kk1OlboQtEDIrmC%2BU3CVxTr%2FRMAAAAAElFTkSuQmCC)](https://www.yoyogames.com/gamemaker)
+[![Language](https://img.shields.io/badge/Language-Game%20Maker%20Language-green&?style=flat-square&logo=data%3Aimage%2Fpng%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAMAAAAolt3jAAAAZlBMVEX%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2BrG8stAAAAIXRSTlMABg0OFBkfcn1%2Bf4CBgoOFhoeIiouWmNDa5ebp8PX2%2B%2F6o6Vq%2BAAAAY0lEQVR42k2OWQ6AIAwFn%2BIOioobrnD%2FS4o0EeanmQxNAdErRFTWtsFq6%2BiiZozz0CSnTjYBwo0RkF8DWDLf51Ni9K%2FYdq0Fy3KAfzk97M7goK1F%2F4rGH9Kk1OlboQtEDIrmC%2BU3CVxTr%2FRMAAAAAElFTkSuQmCC)](https://www.yoyogames.com/gamemaker)
+![Release Version](https://img.shields.io/github/v/tag/t0-ot/Holocure-MouseSupport?label=version&style=flat-square&color=red)
 
 A mouse support mod for HoloCure!
 # About
 
 MouseSupport is a mod for Holocure that adds mouse support to most of the interactable menus, and mouse aiming.
 
-Using the mouse makes navigating around menus much more simpler, and mouse aim provides an easier & a fresh new way to aim for the user!
+Using the mouse makes navigating around menus much simpler, and mouse aim provides an easier and a fresher way to aim!
 
-# Installation
+# Installation :package:
 
-1. Make a backup of your data.win file located in the installed folder of Holocure by renaming it to "data.win.bck"
-2. Download the latest zip in the release section
-3. Open the folder with your choosen mouse cursor
-4. Pick the folder with choosen aiming style
-5. Inside the folder should contain a data.win file. Copy it.
-6. locate your install location of Holocure and replace your data.win file
+1. Make a backup of your data.win file located in your HoloCure installation folder by renaming it to "data.win.bck"
+2. Download the most recent zip from the release section
+3. Extract and open your newly downloaded zip
+4. Open the folder with your chosen mouse cursor and aiming style
+5. Inside the folder should contain a data.win file. Copy it
+6. Find your Holocure installation location and replace your data.win file
 
 You can now play HoloCure with Mouse Support! :tada:
+
+## Updating the mod :arrow_up:
+  1. Download the newest zip
+  2. Select a mouse cursor and aiming style
+  3. Copy the data.win file in the zip
+  4. Replace the data.win in your HoloCure Installation location
+  
+## Uninstalling :toilet:
+  1. In your HoloCure Install location, check that you have the "data.win.bck"
+  2. Delete your "data.win"
+  3. Rename data.win.bck to just "data.win"
+  
+# Known Bugs :bug:
+  - Game may crash when attempting to reroll
+  - Any cursor that isn't Windows Cursor changes size on some menus
