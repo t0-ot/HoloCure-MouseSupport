@@ -1,4 +1,4 @@
-//Only contains moddified code, everything else is ommited
+//Only contains moddified code, everything else is omitted
 
 ...
 
