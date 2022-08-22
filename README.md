@@ -4,6 +4,9 @@
 ![Release Version](https://img.shields.io/github/v/tag/t0-ot/Holocure-MouseSupport?label=version&style=flat-square&color=red)
 
 A mouse support mod for HoloCure!
+<p align="center">
+  <img src="https://github.com/t0-ot/HoloCure-MouseSupport/tree/main/Images/MouseSupport-logo.png" />
+</p>
 # About
 
 MouseSupport is a mod for Holocure that adds mouse support to most of the interactable menus, and mouse aiming.
