@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="400" height="400" src="https://github.com/t0-ot/HoloCure-MouseSupport/blob/main/Images/MouseSupport-logo.png" />
+  <img width="350" height="350" src="https://github.com/t0-ot/HoloCure-MouseSupport/blob/main/Images/MouseSupport-logo.png" />
 </p>
 
 <h1 align="center">HoloCure MouseSupport</h1>
@@ -20,7 +20,7 @@ MouseSupport is a mod for Holocure that adds mouse support to most of the intera
 
 Using the mouse makes navigating around menus much simpler, and mouse aim provides an easier and a fresher way to aim!
 
-**:warning:Disclaimer: If your version of HoloCure is newer than the mods, the game *will revert to a older version of the game.***
+**:warning:Disclaimer: If your version of HoloCure is newer than the mods, the game *will revert to an older version of the game.***
 
 # Installation :package:
 
