@@ -1,0 +1,1 @@
+global.CurrentLanguage.global.CurrentLanguage.SetLanguage(getTextManager)
