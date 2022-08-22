@@ -1,12 +1,19 @@
-# HoloCure MouseSupport :computer_mouse:
-[![Github License](https://flat.badgen.net/badge/license/MIT/blue)](https://raw.githubusercontent.com/t0-ot/HoloCure-MouseSupport/main/LICENSE)
-[![Language](https://img.shields.io/badge/Language-Game%20Maker%20Language-green&?style=flat-square&logo=data%3Aimage%2Fpng%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAMAAAAolt3jAAAAZlBMVEX%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2BrG8stAAAAIXRSTlMABg0OFBkfcn1%2Bf4CBgoOFhoeIiouWmNDa5ebp8PX2%2B%2F6o6Vq%2BAAAAY0lEQVR42k2OWQ6AIAwFn%2BIOioobrnD%2FS4o0EeanmQxNAdErRFTWtsFq6%2BiiZozz0CSnTjYBwo0RkF8DWDLf51Ni9K%2FYdq0Fy3KAfzk97M7goK1F%2F4rGH9Kk1OlboQtEDIrmC%2BU3CVxTr%2FRMAAAAAElFTkSuQmCC)](https://www.yoyogames.com/gamemaker)
-![Release Version](https://img.shields.io/github/v/tag/t0-ot/Holocure-MouseSupport?label=version&style=flat-square&color=red)
+<p align="center">
+  <img width="400" height="400" src="https://github.com/t0-ot/HoloCure-MouseSupport/blob/main/Images/MouseSupport-logo.png" />
+</p>
+
+<h1 align="center">HoloCure MouseSupport</h1>
+
+<div align="center">
+
+  <a href="">[![Github License](https://flat.badgen.net/badge/license/MIT/blue)](https://raw.githubusercontent.com/t0-ot/HoloCure-MouseSupport/main/LICENSE)</a>
+  <a href="">[![Language](https://img.shields.io/badge/Language-Game%20Maker%20Language-green&?style=flat-square&logo=data%3Aimage%2Fpng%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAMAAAAolt3jAAAAZlBMVEX%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2BrG8stAAAAIXRSTlMABg0OFBkfcn1%2Bf4CBgoOFhoeIiouWmNDa5ebp8PX2%2B%2F6o6Vq%2BAAAAY0lEQVR42k2OWQ6AIAwFn%2BIOioobrnD%2FS4o0EeanmQxNAdErRFTWtsFq6%2BiiZozz0CSnTjYBwo0RkF8DWDLf51Ni9K%2FYdq0Fy3KAfzk97M7goK1F%2F4rGH9Kk1OlboQtEDIrmC%2BU3CVxTr%2FRMAAAAAElFTkSuQmCC)](https://www.yoyogames.com/gamemaker)</a>
+  <a href="">![Release Version](https://img.shields.io/github/v/tag/t0-ot/Holocure-MouseSupport?label=version&style=flat-square&color=red)</a>
+
+</div>
 
 A mouse support mod for HoloCure!
-<p align="center">
-  <img src="https://github.com/t0-ot/HoloCure-MouseSupport/tree/main/Images/MouseSupport-logo.png" />
-</p>
+
 # About
 
 MouseSupport is a mod for Holocure that adds mouse support to most of the interactable menus, and mouse aiming.
