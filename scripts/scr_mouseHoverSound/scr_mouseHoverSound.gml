@@ -1,3 +1,4 @@
+//function that manages how to play sound when hovering over buttons
 if (room == rm_Title)
 {
     if (argument0 != argument1 && (!instance_exists(obj_Options)) && (!instance_exists(obj_Credits)))

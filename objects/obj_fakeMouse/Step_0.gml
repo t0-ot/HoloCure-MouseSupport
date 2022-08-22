@@ -1,3 +1,4 @@
+//used to manage the size of the mouse cursor when going from room to room
 if (room != rm_CharSelect)
 {
     x = device_mouse_x_to_gui(0)

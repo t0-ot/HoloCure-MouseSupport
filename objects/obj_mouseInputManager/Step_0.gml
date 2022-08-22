@@ -1,3 +1,4 @@
+//Manages what script to run
 if instance_exists(obj_TitleScreen)
     scr_MouseTitle()
 if (room == rm_PauseRoom)
