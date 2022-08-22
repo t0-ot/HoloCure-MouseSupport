@@ -20,6 +20,8 @@ MouseSupport is a mod for Holocure that adds mouse support to most of the intera
 
 Using the mouse makes navigating around menus much simpler, and mouse aim provides an easier and a fresher way to aim!
 
+**:warning:Disclaimer: If your version of HoloCure is newer than the mods, the game *will revert to a older version of the game.***
+
 # Installation :package:
 
 1. Make a backup of your data.win file located in your HoloCure installation folder by renaming it to "data.win.bck"
