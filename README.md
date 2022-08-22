@@ -12,7 +12,7 @@
 
 </div>
 
-A mouse support mod for HoloCure!
+<p align="center">A mouse support mod for HoloCure!</p>
 
 # About
 
