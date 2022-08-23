@@ -22,6 +22,22 @@ Using the mouse makes navigating around menus much simpler, and mouse aim provid
 
 **:warning:Disclaimer: If your version of HoloCure is newer than the mods, the game *will revert to an older version of the game.***
 
+## Features :sparkles:
+
+- Mouse support on all menus that the keyboard can interact with!
+- MouseAim for people who want to aim with just their mouse
+  - Note:memo:: You can't aim while standing still
+- 3 different in-game cursor styles
+  - Default Cursor
+  - Windows Cursor
+  - Sana Cursor
+
+## Upcoming Content :construction:
+
+- Support for HoloCure 0.4 (When it's released)
+- Adding Option to change cursor in-game
+- Toggling MouseAim in-game
+
 # Installation :package:
 
 1. Make a backup of your data.win file located in your HoloCure installation folder by renaming it to "data.win.bck"
