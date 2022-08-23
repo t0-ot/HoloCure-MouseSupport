@@ -285,154 +285,88 @@ with (obj_PlayerManager)
             }
         }
     }
-    if (gameOvered || gameWon)
+    if ((gameOvered && gameOverTime >= 330 && canControl) || (gameWon && gameOverTime >= 120 && canControl))
     {
-        if (gameOvered && gameOverTime >= 330 && canControl)
+        var currentGameMode = (global.gameMode + 3)
+        i = 0
+        repeat currentGameMode
         {
-            var currentGameMode = (global.gameMode + 3)
-            i = 0
-            repeat currentGameMode
-            {
-                bmx = 320
+            bmx = 320
+            if gameOvered
                 bmy = (186 + (i * 34))
-                uPrev = pauseOption
-                if point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), (bmx - 90), bmy, (bmx + 90), (bmy + 30))
-                {
-                    pauseOption = i
-                    scr_mouseHoverSound(uPrev, pauseOption, snd_menu_select, 30)
-                    if mouse_check_button_released(mb_left)
-                    {
-                        switch pauseOption
-                        {
-                            case 0:
-                                if (global.unlockedNew && array_length(global.unlockedThings) > 0)
-                                {
-                                    global.returningRoom = global.playingStage
-                                    global.resetLevel = 1
-                                    room_goto(rm_UnlockRoom)
-                                }
-                                else
-                                {
-                                    room_goto(global.playingStage)
-                                    global.resetLevel = 1
-                                }
-                                instance_destroy()
-                                break
-                            case 1:
-                                if (global.unlockedNew && array_length(global.unlockedThings) > 0)
-                                {
-                                    global.returningRoom = 6
-                                    global.resetLevel = 1
-                                    room_goto(rm_UnlockRoom)
-                                }
-                                else
-                                {
-                                    global.resetLevel = 1
-                                    room_goto(rm_CharSelect)
-                                }
-                                instance_destroy()
-                                break
-                            case 2:
-                                if (global.unlockedNew && array_length(global.unlockedThings) > 0)
-                                {
-                                    global.returningRoom = 11
-                                    global.resetLevel = 1
-                                    room_goto(rm_UnlockRoom)
-                                }
-                                else
-                                {
-                                    global.resetLevel = 1
-                                    room_goto(rm_Title)
-                                }
-                                instance_destroy()
-                                break
-                            case 3:
-                                if (!submitScoreError)
-                                {
-                                    global.resetLevel = 1
-                                    var hiscore = instance_create_depth(x, y, depth, obj_HiScores)
-                                    canControl = 0
-                                    with (obj_HiScores)
-                                    {
-                                        if is_undefined(ds_map_find_value(request_ids_, (0 << 0)))
-                                            event_user((0 << 0))
-                                    }
-                                    alarm[4] = 300
-                                }
-                                break
-                        }
-
-                        audio_play_sound(snd_menu_confirm, 30, false)
-                    }
-                }
-                i++
-            }
-        }
-        else if (gameWon && gameOverTime >= 120 && canControl)
-        {
-            i = 0
-            repeat (3)
-            {
-                bmx = 320
+            else
                 bmy = (176 + (i * 34))
-                uPrev = pauseOption
-                if point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), (bmx - 90), bmy, (bmx + 90), (bmy + 30))
+            uPrev = pauseOption
+            if point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), (bmx - 90), bmy, (bmx + 90), (bmy + 30))
+            {
+                pauseOption = i
+                scr_mouseHoverSound(uPrev, pauseOption, snd_menu_select, 30)
+                if mouse_check_button_released(mb_left)
                 {
-                    pauseOption = i
-                    scr_mouseHoverSound(uPrev, pauseOption, snd_menu_select, 30)
-                    if mouse_check_button_released(mb_left)
+                    switch pauseOption
                     {
-                        switch pauseOption
-                        {
-                            case 0:
-                                if (global.unlockedNew && array_length(global.unlockedThings) > 0)
+                        case 0:
+                            if (global.unlockedNew && array_length(global.unlockedThings) > 0)
+                            {
+                                global.returningRoom = global.playingStage
+                                global.resetLevel = 1
+                                room_goto(rm_UnlockRoom)
+                            }
+                            else
+                            {
+                                room_goto(global.playingStage)
+                                global.resetLevel = 1
+                            }
+                            instance_destroy()
+                            break
+                        case 1:
+                            if (global.unlockedNew && array_length(global.unlockedThings) > 0)
+                            {
+                                global.returningRoom = 6
+                                global.resetLevel = 1
+                                room_goto(rm_UnlockRoom)
+                            }
+                            else
+                            {
+                                global.resetLevel = 1
+                                room_goto(rm_CharSelect)
+                            }
+                            instance_destroy()
+                            break
+                        case 2:
+                            if (global.unlockedNew && array_length(global.unlockedThings) > 0)
+                            {
+                                global.returningRoom = 11
+                                global.resetLevel = 1
+                                room_goto(rm_UnlockRoom)
+                            }
+                            else
+                            {
+                                global.resetLevel = 1
+                                room_goto(rm_Title)
+                            }
+                            instance_destroy()
+                            break
+                        case 3:
+                            if (!submitScoreError)
+                            {
+                                global.resetLevel = 1
+                                var hiscore = instance_create_depth(x, y, depth, obj_HiScores)
+                                canControl = 0
+                                with (obj_HiScores)
                                 {
-                                    global.returningRoom = global.playingStage
-                                    global.resetLevel = 1
-                                    room_goto(rm_UnlockRoom)
+                                    if is_undefined(ds_map_find_value(request_ids_, (0 << 0)))
+                                        event_user((0 << 0))
                                 }
-                                else
-                                {
-                                    room_goto(global.playingStage)
-                                    global.resetLevel = 1
-                                }
-                                instance_destroy()
-                                break
-                            case 1:
-                                if (global.unlockedNew && array_length(global.unlockedThings) > 0)
-                                {
-                                    global.returningRoom = 6
-                                    global.resetLevel = 1
-                                    room_goto(rm_UnlockRoom)
-                                }
-                                else
-                                {
-                                    global.resetLevel = 1
-                                    room_goto(rm_CharSelect)
-                                }
-                                instance_destroy()
-                                break
-                            case 2:
-                                if (global.unlockedNew && array_length(global.unlockedThings) > 0)
-                                {
-                                    global.returningRoom = 11
-                                    global.resetLevel = 1
-                                    room_goto(rm_UnlockRoom)
-                                }
-                                else
-                                {
-                                    global.resetLevel = 1
-                                    room_goto(rm_Title)
-                                }
-                                instance_destroy()
-                                break
-                        }
-
-                        audio_play_sound(snd_menu_confirm, 30, false)
+                                alarm[4] = 300
+                            }
+                            break
                     }
+
+                    audio_play_sound(snd_menu_confirm, 30, false)
                 }
-                i++
             }
+            i++
         }
     }
     if (paused && gotGoldenAnvil && canControl)

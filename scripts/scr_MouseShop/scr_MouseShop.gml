@@ -35,28 +35,18 @@ with (obj_Shop)
                 if (point_in_rectangle(mouse_x, mouse_y, 250, 109, 275, 196) && mouse_check_button_released(mb_left))
                 {
                     if (gachaGroupOption == 0)
-                    {
                         gachaGroupOption = (gachaItemsArray - 1)
-                        audio_play_sound(snd_menu_select, 30, false)
-                    }
                     else if (gachaGroupOption > 0)
-                    {
                         gachaGroupOption--
-                        audio_play_sound(snd_menu_select, 30, false)
-                    }
+                    audio_play_sound(snd_menu_select, 30, false)
                 }
                 if (point_in_rectangle(mouse_x, mouse_y, 602, 109, 627, 196) && mouse_check_button_released(mb_left))
                 {
                     if (gachaGroupOption < (gachaItemsArray - 1))
-                    {
                         gachaGroupOption++
-                        audio_play_sound(snd_menu_select, 30, false)
-                    }
                     else if (gachaGroupOption == (gachaItemsArray - 1))
-                    {
                         gachaGroupOption = 0
-                        audio_play_sound(snd_menu_select, 30, false)
-                    }
+                    audio_play_sound(snd_menu_select, 30, false)
                 }
             }
             if ((!itemSelected) && point_in_rectangle(mouse_x, mouse_y, 280, 95, 595, 225) && mouse_check_button_pressed(mb_left) && gachaGroupOption != 2)
@@ -119,6 +109,31 @@ with (obj_Shop)
             }
             break
         case 1:
+            for (i = 0; i < 3; i++)
+            {
+                for (j = 0; j < 7; j++)
+                {
+                    if (((i * 7) + j) < array_length(shopItems) && shopItems[((i * 7) + j)] != undefined)
+                    {
+                        uPrev = shopOption
+                        uSX = (299 + (j * 47))
+                        uSY = (80 + (i * 58))
+                        if (point_in_rectangle(mouse_x, mouse_y, (uSX - 20), (uSY - 18), (uSX + 17), (uSY + 31)) && (!itemSelected))
+                        {
+                            shopOption = ((i * 7) + j)
+                            scr_mouseHoverSound(uPrev, shopOption, snd_menu_select, 0)
+                            if (mouse_check_button_pressed(mb_left) && canControl && (!itemSelected))
+                            {
+                                itemSelected = 1
+                                buyingOption = 0
+                                if (ds_map_find_value(global.PlayerSave, shopItems[shopOption].optionID) == array_length(shopItems[shopOption].cost))
+                                    buyingOption = 1
+                                audio_play_sound(snd_menu_confirm, 30, false)
+                            }
+                        }
+                    }
+                }
+            }
             if itemSelected
             {
                 for (var a = 0; a < 2; a++)
@@ -177,31 +192,6 @@ with (obj_Shop)
                                 ds_map_set(global.PlayerSave, "holoCoins", (ds_map_find_value(global.PlayerSave, "holoCoins") + totalRefund))
                                 gml_Script_SavePlayerSave()
                                 itemSelected = 0
-                            }
-                        }
-                    }
-                }
-            }
-            for (i = 0; i < 3; i++)
-            {
-                for (j = 0; j < 7; j++)
-                {
-                    if (((i * 7) + j) < array_length(shopItems) && shopItems[((i * 7) + j)] != undefined)
-                    {
-                        uPrev = shopOption
-                        uSX = (299 + (j * 47))
-                        uSY = (80 + (i * 58))
-                        if (point_in_rectangle(mouse_x, mouse_y, (uSX - 20), (uSY - 18), (uSX + 17), (uSY + 31)) && (!itemSelected))
-                        {
-                            shopOption = ((i * 7) + j)
-                            scr_mouseHoverSound(uPrev, shopOption, snd_menu_select, 0)
-                            if (mouse_check_button_pressed(mb_left) && canControl && (!itemSelected))
-                            {
-                                itemSelected = 1
-                                buyingOption = 0
-                                if (ds_map_find_value(global.PlayerSave, shopItems[shopOption].optionID) == array_length(shopItems[shopOption].cost))
-                                    buyingOption = 1
-                                audio_play_sound(snd_menu_confirm, 30, false)
                             }
                         }
                     }

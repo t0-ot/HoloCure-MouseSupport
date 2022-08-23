@@ -9,13 +9,16 @@ else if (room == rm_CharSelect)
     x = mouse_x
     y = mouse_y
 }
-if (instance_exists(obj_Options) && room == rm_Title)
+if room == rm_Title
 {
-    image_xscale = 1
-    image_yscale = 1
-}
-else if (room == rm_Title && (!instance_exists(obj_Options)))
-{
-    image_xscale = 2
-    image_yscale = 2
+    if (instance_exists(obj_Options))
+    {
+        image_xscale = 1
+        image_yscale = 1
+    }
+    else if ((!instance_exists(obj_Options)))
+    {
+        image_xscale = 2
+        image_yscale = 2
+    }
 }
