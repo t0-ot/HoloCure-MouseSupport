@@ -29,8 +29,12 @@ Using the mouse makes navigating around menus much simpler, and mouse aim provid
   - Note:memo:: You can't aim while standing still
 - 3 different in-game cursor styles
   - Default Cursor
-  - Windows Cursor
+  
+  <img align="right" src="https://github.com/t0-ot/HoloCure-MouseSupport/blob/main/Images/Default-Cursor.png">
+  <img align="right" width="68" height="68" src="https://github.com/t0-ot/HoloCure-MouseSupport/blob/main/Images/Sana-Cursor.png">
+  
   - Sana Cursor
+  - Windows Cursor (No custom cursor, uses windows default cursor)
 
 ## Upcoming Content :construction:
 
