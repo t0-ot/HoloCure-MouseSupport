@@ -59,7 +59,7 @@ You can now play HoloCure with Mouse Support! :tada:
   3. Copy the data.win file in the zip
   4. Replace the data.win in your HoloCure Installation location
   
-## Uninstalling :toilet:
+## Uninstalling :wastebasket:
   1. In your HoloCure Install location, check that you have the "data.win.bck"
   2. Delete your "data.win"
   3. Rename data.win.bck to just "data.win"

@@ -21,18 +21,11 @@ if (room == rm_InitRoom)
                     scr_mouseHoverSound(uPrev, currentOption, snd_menu_select, 30)
                     if mouse_check_button_released(mb_left)
                     {
-                        switch currentOption
-                        {
-                            case 0:
-                                global.CurrentLanguage = "eng"
-                                langOption = 0
-                                break
-                            case 1:
-                                global.CurrentLanguage = "jp"
-                                langOption = 1
-                                break
-                        }
-
+                        if (currentOption == 0)
+                            global.CurrentLanguage = "eng"
+                        else if (currentOption == 1)
+                            global.CurrentLanguage = "jp"
+                        langOption = currentOption
                         if instance_exists(getTextManager)
                         {
                             scr_MouseMiscUneditable()
@@ -61,18 +54,8 @@ if (room == rm_InitRoom)
                         audio_play_sound(snd_menu_select, 30, false)
                     if mouse_check_button_released(mb_left)
                     {
-                        switch currentOption
-                        {
-                            case 0:
-                                global.hiscorenames = 1
-                                hnShow = 0
-                                break
-                            case 1:
-                                global.hiscorenames = 0
-                                hnShow = 1
-                                break
-                        }
-
+                        global.hiscorenames = ((currentOption * -1) + 1)
+                        hnShow = currentOption
                         initStep++
                         currentOption = 0
                         audio_play_sound(snd_menu_confirm, 30, false)

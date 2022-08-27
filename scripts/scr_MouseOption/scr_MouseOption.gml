@@ -38,45 +38,32 @@ with (obj_Options)
                         audio_play_sound(snd_menu_select, 30, false)
                     opx = (container[0] + 81)
                     opy = ((container[1] + 56) + (i * 34))
-                    var isHovering = (point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), (opx - 11), (opy - 11), (opx + 11), (opy + 11)) && mouse_check_button_released(mb_left))
-                    switch (i + showOptionRange)
+                    if (point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), (opx - 11), (opy - 11), (opx + 11), (opy + 11)) && mouse_check_button_released(mb_left))
                     {
-                        case (1 << 0):
-                            if isHovering
-                            {
+                        switch (i + showOptionRange)
+                        {
+                            case (1 << 0):
                                 global.fullscreen = (!global.fullscreen)
                                 window_set_fullscreen(global.fullscreen)
-                                audio_play_sound(snd_menu_confirm, 30, false)
-                            }
-                            break
-                        case (4 << 0):
-                            if isHovering
-                            {
+                                break
+                            case (4 << 0):
                                 global.showDamageText = (!global.showDamageText)
-                                audio_play_sound(snd_menu_confirm, 30, false)
-                            }
-                            break
-                        case (5 << 0):
-                            if isHovering
-                            {
+                                break
+                            case (5 << 0):
                                 global.lightFX = (!global.lightFX)
-                                audio_play_sound(snd_menu_confirm, 30, false)
-                            }
-                            break
-                        case (6 << 0):
-                            if isHovering
-                            {
+                                break
+                            case (6 << 0):
                                 global.screenshake = (!global.screenshake)
-                                audio_play_sound(snd_menu_confirm, 30, false)
-                            }
-                            break
-                        case (9 << 0):
-                            if isHovering
-                            {
+                                break
+                            case (9 << 0):
                                 global.hiscorenames = (!global.hiscorenames)
-                                audio_play_sound(snd_menu_confirm, 30, false)
-                            }
-                            break
+                                break
+                        }
+
+                        audio_play_sound(snd_menu_confirm, 30, false)
+                    }
+                    switch (i + showOptionRange)
+                    {
                         case (0 << 0):
                             var j = 0
                             repeat (2)
@@ -92,26 +79,19 @@ with (obj_Options)
                                     switch selectedResolution
                                     {
                                         case 0:
-                                            global.screen_resolution_x = 640
-                                            global.screen_resolution_y = 360
+                                            scr_mouseOptionSetResolution(640, 360)
                                             break
                                         case 1:
-                                            global.screen_resolution_x = 1280
-                                            global.screen_resolution_y = 720
+                                            scr_mouseOptionSetResolution(1280, 720)
                                             break
                                         case 2:
-                                            global.screen_resolution_x = 1920
-                                            global.screen_resolution_y = 1080
+                                            scr_mouseOptionSetResolution(1920, 1080)
                                             break
                                         case 3:
-                                            global.screen_resolution_x = 2560
-                                            global.screen_resolution_y = 1440
+                                            scr_mouseOptionSetResolution(2560, 1440)
                                             break
                                     }
 
-                                    window_set_size(global.screen_resolution_x, global.screen_resolution_y)
-                                    surface_resize(application_surface, global.screen_resolution_x, global.screen_resolution_y)
-                                    audio_play_sound(snd_menu_confirm, 30, false)
                                 }
                                 j++
                             }
@@ -153,10 +133,8 @@ with (obj_Options)
                             var mouseSelectedSlider = 0
                             if point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), (opx - 3), (opy - 6), (opxalt + 3), (opy + 6))
                             {
-                                if (!mouse_check_button(mb_left))
-                                    mouseSelectedSlider = 0
-                                else
-                                    mouseSelectedSlider = 1
+                                if mouse_check_button(mb_left)
+                                    mouseSelectedSlider = (!mouseSelectedSlider)
                                 j = 0
                                 repeat (11)
                                 {
@@ -164,20 +142,19 @@ with (obj_Options)
                                     opy = ((container[1] + 56) + (i * 34))
                                     if point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), (opx - 3), (opy - 6), (opx + 3), (opy + 6))
                                     {
-                                        if mouseSelectedSlider
+                                        if (!mouseSelectedSlider)
+                                            return;
+                                        if (i == 2)
                                         {
-                                            if (i == 2)
-                                            {
-                                                if (j <= 11)
-                                                    global.musicVolume = (j * 0.1)
-                                                audio_group_set_gain(1, global.musicVolume, 0)
-                                            }
-                                            if (i == 3)
-                                            {
-                                                if (j <= 11)
-                                                    global.soundVolume = (j * 0.1)
-                                                audio_group_set_gain(2, global.soundVolume, 0)
-                                            }
+                                            if (j <= 11)
+                                                global.musicVolume = (j * 0.1)
+                                            audio_group_set_gain(1, global.musicVolume, 0)
+                                        }
+                                        if (i == 3)
+                                        {
+                                            if (j <= 11)
+                                                global.soundVolume = (j * 0.1)
+                                            audio_group_set_gain(2, global.soundVolume, 0)
                                         }
                                     }
                                     j++
@@ -212,7 +189,8 @@ with (obj_Options)
             if (point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), (opx - 90), opy, (opx + 90), (opy + 30)) && (!remapping))
             {
                 currentOption = i
-                scr_mouseHoverSound(uPrev, currentOption, snd_menu_select, 30)
+                if (uPrev != currentOption)
+                        audio_play_sound(snd_menu_select, 30, false)
                 if (mouse_check_button_released(mb_left) && (!remapping))
                 {
                     show_debug_message("set remapping")
