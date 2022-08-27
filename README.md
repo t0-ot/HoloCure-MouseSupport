@@ -65,5 +65,5 @@ You can now play HoloCure with Mouse Support! :tada:
   3. Rename data.win.bck to just "data.win"
   
 # Known Bugs :bug:
-  - Game may crash when attempting to reroll
+  - ~~Game may crash when attempting to reroll~~ This is a bug within the base game.
   - Any cursor that isn't Windows Cursor changes size on some menus
