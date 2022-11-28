@@ -6,13 +6,13 @@ with (obj_Options)
     var i = 0
     opx = container[0]
     opy = container[1]
-    if (!keybindMenu)
+    if ((!keybindMenu) && (!controllerMenu))
     {
         if point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), (opx - 120), opy, (opx + 120), (opy + 285))
         {
             if (mouse_wheel_down() && canControl && (!keybindMenu))
             {
-                if (showOptionRange < 3 && currentOption < 7 && (currentOption + showOptionRange) < (maxOptions - 1))
+                if (showOptionRange < 4 && currentOption < 7 && (currentOption + showOptionRange) < (maxOptions - 1))
                 {
                     showOptionRange++
                     audio_play_sound(snd_menu_select, 30, false)
@@ -55,7 +55,7 @@ with (obj_Options)
                             case (6 << 0):
                                 global.screenshake = (!global.screenshake)
                                 break
-                            case (9 << 0):
+                            case (10 << 0):
                                 global.hiscorenames = (!global.hiscorenames)
                                 break
                         }
@@ -97,7 +97,7 @@ with (obj_Options)
                             }
                             global.Resolution = selectedResolution
                             break
-                        case (8 << 0):
+                        case (9 << 0):
                             j = 0
                             repeat (2)
                             {
@@ -171,15 +171,32 @@ with (obj_Options)
                                 audio_play_sound(snd_menu_confirm, 30, false)
                             }
                             break
+                        case (8 << 0):
+                            if mouse_check_button_released(mb_left)
+                            {
+                                controllerMenu = 1
+                                prevMenu = [currentOption, showOptionRange]
+                                currentOption = 0
+                                showOptionRange = 0
+                                for (var b = 0; b < 6; b++)
+                                {
+                                    for (var c = 0; c < array_length(controllerButtonList); c++)
+                                    {
+                                        if (global.controllerButtons[b] == controllerButtonList[c])
+                                            currentPositions[b] = c
+                                    }
+                                }
+                                audio_play_sound(snd_menu_confirm, 30, false)
+                            }
                     }
 
                 }
                 i++
             }
-            SaveSettings()
+            gml_Script_SaveSettings()
         }
     }
-    else
+    else if keybindMenu
     {
         repeat (7)
         {
@@ -190,7 +207,7 @@ with (obj_Options)
             {
                 currentOption = i
                 if (uPrev != currentOption)
-                        audio_play_sound(snd_menu_select, 30, false)
+                    audio_play_sound(snd_menu_select, 30, false)
                 if (mouse_check_button_released(mb_left) && (!remapping))
                 {
                     show_debug_message("set remapping")
@@ -200,9 +217,96 @@ with (obj_Options)
                     {
                         setAll = 6
                         currentOption = 0
-                        for (i = 0; i < 6; i++)
-                            global.theButtons[i] = 0
+                        for (b = 0; b < 6; b++)
+                            global.theButtons[b] = 0
                     }
+                }
+            }
+            i++
+        }
+    }
+    else if controllerMenu
+    {
+        repeat (7)
+        {
+            uPrev = currentOption
+            opx = (container[0] + 12)
+            opy = ((container[1] + 43) + (i * 34))
+            if point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), (opx - 90), opy, (opx + 90), (opy + 30))
+            {
+                currentOption = i
+                if (uPrev != currentOption)
+                    audio_play_sound(snd_menu_select, 30, false)
+                var z = 0
+                repeat (2)
+                {
+                    var oopx = ((container[0] + 57) + (z * 36))
+                    var oopy = ((container[1] + 56) + (i * 34))
+                    if (point_in_rectangle(mouse_x, mouse_y, (oopx - 3), (oopy - 5), (oopx + 3), (oopy + 5)) && mouse_check_button_released(mb_left) && i != 6)
+                    {
+                        if (z == 0)
+                        {
+                            if (currentPositions[currentOption] > 0)
+                            {
+                                currentPositions[currentOption]--
+                                audio_play_sound(snd_menu_select, 30, false)
+                            }
+                            else
+                            {
+                                currentPositions[currentOption] = 9
+                                audio_play_sound(snd_menu_select, 30, false)
+                            }
+                        }
+                        else if (z == 1)
+                        {
+                            if (currentPositions[currentOption] < (array_length(controllerButtonList) - 1))
+                            {
+                                currentPositions[currentOption]++
+                                audio_play_sound(snd_menu_select, 30, false)
+                            }
+                            else
+                            {
+                                currentPositions[currentOption] = 0
+                                audio_play_sound(snd_menu_select, 30, false)
+                            }
+                        }
+                    }
+                    z++
+                }
+                if ((!(point_in_rectangle(mouse_x, mouse_y, (oopx - 3), (oopy - 5), (oopx + 3), (oopy + 5)))) && mouse_check_button_released(mb_left))
+                {
+                    var validKeys = 1
+                    for (b = 0; b < 6; b++)
+                    {
+                        for (c = 0; c < 6; c++)
+                        {
+                            if (b != c)
+                            {
+                                if (currentPositions[b] == currentPositions[c])
+                                    validKeys = 0
+                            }
+                        }
+                    }
+                    if validKeys
+                    {
+                        for (var d = 0; d < 6; d++)
+                            global.controllerButtons[d] = controllerButtonList[currentPositions[d]]
+                        gml_Script_SaveSettings()
+                        SetControllerControls()
+                        controllerSet = 1
+                    }
+                    else
+                    {
+                        for (d = 0; d < 6; d++)
+                        {
+                            for (var e = 0; e < array_length(controllerButtonList); e++)
+                            {
+                                if (global.controllerButtons[d] == controllerButtonList[e])
+                                    currentPositions[d] = e
+                            }
+                        }
+                    }
+                    audio_play_sound(snd_menu_confirm, 30, false)
                 }
             }
             i++
