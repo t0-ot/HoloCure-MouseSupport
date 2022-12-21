@@ -22,8 +22,6 @@ Using the mouse makes navigating around menus much simpler, and mouse aim provid
 
 **:warning:Disclaimer: If your version of HoloCure is newer than the mods, the game *will revert to an older version of the game.***
 
-> Update: Sadly as of now I have no time to focus on this mod, I'm sorry. But forks are welcomed.
-
 ## Features :sparkles:
 
 - Mouse support on all menus that the keyboard can interact with!

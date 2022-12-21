@@ -1,11 +1,8 @@
 with (obj_Options)
 {
-    var opx = 0
-    var opy = 0
-    var uPrev = 0
     var i = 0
-    opx = container[0]
-    opy = container[1]
+    var opx = container[0]
+    var opy = container[1]
     if ((!keybindMenu) && (!controllerMenu))
     {
         if point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), (opx - 120), opy, (opx + 120), (opy + 285))
@@ -28,7 +25,7 @@ with (obj_Options)
             }
             repeat (7)
             {
-                uPrev = currentOption
+                var uPrev = currentOption
                 opx = (container[0] + 12)
                 opy = ((container[1] + 43) + (i * 34))
                 if point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), (opx - 90), opy, (opx + 90), (opy + 30))

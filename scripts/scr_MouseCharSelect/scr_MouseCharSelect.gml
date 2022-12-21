@@ -1,50 +1,23 @@
 with (obj_CharSelect)
 {
-    var cx = 0
-    var cy = 0
-    var uPrev = 0
-    if (global.charSelected == self)
+    if (global.charSelected == -1)
     {
         var i = 0
         repeat (25)
         {
-            uPrev = selectedCharacter
-            cx = (224 + ((i % 5) * 48))
-            cy = (94 + (floor((i / 5)) * 55))
+            var uPrev = selectedCharacter
+            var cx = (224 + ((i % 5) * 48))
+            var cy = (94 + (floor((i / 5)) * 55))
             if (point_in_rectangle(mouse_x, mouse_y, (cx - 21), (cy - 19), (cx + 21), (cy + 19)) && characterInfo[i] != ds_map_find_value(global.characterData, "none"))
             {
                 selectedCharacter = i
                 scr_mouseHoverSound(uPrev, selectedCharacter, snd_charSelectWoosh, 0)
-                if mouse_check_button_released(mb_left)
-                {
-                    if (selectedCharacter == 22)
-                        selectedCharacter = randomSelect
-                    if (characterInfo[selectedCharacter] != ds_map_find_value(global.characterData, "empty"))
-                    {
-                        global.charSelected = characterInfo[selectedCharacter]
-                        audio_play_sound(snd_charSelected, 0, false)
-                        modeOption = global.playingMode
-                        availableOutfits = ["default"]
-                        outfitSelect = 0
-                        if variable_struct_exists(global.charSelected, "outfits")
-                        {
-                            var outfitsCheck = variable_struct_get_names(global.charSelected.outfits)
-                            availableOutfits = ["default"]
-                            for (a = 0; a < array_length(outfitsCheck); a++)
-                            {
-                                if array_exists(ds_map_find_value(global.PlayerSave, "unlockedOutfits"), outfitsCheck[a])
-                                    array_push(availableOutfits, variable_struct_get(global.charSelected.outfits, outfitsCheck[a]).outfitID)
-                            }
-                            if (array_length(availableOutfits) > 1)
-                                choseOutfit = 0
-                        }
-                    }
-                }
+                scr_mouseToggle(6, 19, Select)
             }
             i++
         }
     }
-    else if (global.charSelected != self && (!choseOutfit))
+    else if (global.charSelected != -1 && (!choseOutfit))
     {
         cx = 320
         cy = (modecontainer[1] + 60)
@@ -64,12 +37,8 @@ with (obj_CharSelect)
                 outfitSelect++
             audio_play_sound(snd_charSelectWoosh, 0, false)
         }
-        if (point_in_rectangle(mouse_x, mouse_y, (cx - 40), (cy - 34), (cx + 30), (cy + 27)) && mouse_check_button_released(mb_left))
-        {
-            global.outfitSelected = availableOutfits[outfitSelect]
-            choseOutfit = 1
-            audio_play_sound(snd_charSelected, 0, false)
-        }
+        if point_in_rectangle(mouse_x, mouse_y, (cx - 40), (cy - 34), (cx + 30), (cy + 27))
+            scr_mouseToggle()
     }
     else if (choseOutfit && global.gameMode == -1)
     {
@@ -84,12 +53,7 @@ with (obj_CharSelect)
                 modeOption = i
                 global.playingMode = 0
                 scr_mouseHoverSound(uPrev, modeOption, snd_menu_select, 0)
-                if mouse_check_button_released(mb_left)
-                {
-                    uPrev = global.gameMode
-                    global.gameMode = i
-                    scr_mouseHoverSound(uPrev, global.gameMode, snd_charSelected, 0)
-                }
+                scr_mouseToggle()
             }
             i++
         }
@@ -130,27 +94,14 @@ with (obj_CharSelect)
                 }
             }
         }
-        if (point_in_rectangle(mouse_x, mouse_y, 245, 120, 394, 209) && mouse_check_button_released(mb_left))
-        {
-            if (array_exists(ds_map_find_value(global.PlayerSave, "unlockedStages"), availableStages[selectedStage][2]) || global.debug)
-            {
-                global.playingStage = availableStages[selectedStage][0]
-                audio_play_sound(snd_charSelected, 0, false)
-                readyToGo = 1
-            }
-        }
+        if point_in_rectangle(mouse_x, mouse_y, 245, 120, 394, 209)
+            scr_mouseToggle()
     }
     else if readyToGo
     {
         cx = 320
         cy = 280
-        if (point_in_rectangle(mouse_x, mouse_y, (cx - 44), (cy - 14), (cx + 44), (cy + 14)) && mouse_check_button_released(mb_left))
-        {
-            audio_play_sound(snd_charSelected, 0, false)
-            if global.firstTime
-                room_goto(rm_Tutorial)
-            else
-                room_goto(global.playingStage)
-        }
+        if point_in_rectangle(mouse_x, mouse_y, (cx - 44), (cy - 14), (cx + 44), (cy + 14))
+            scr_mouseToggle()
     }
 }
