@@ -193,5 +193,12 @@ with (obj_PlayerManager)
                     scr_mouseToggle()
             }
         }
+        if (paused && reviving)
+        {
+            bmx = 320
+            bmy = 240
+            if point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), (bmx - 44), (bmy - 14), (bmx + 44), (bmy + 14))
+                scr_mouseToggle()
+        }
     }
 }
