@@ -22,7 +22,6 @@ Using the mouse makes navigating around menus much simpler, and mouse aim provid
 
 
 **:warning:Disclaimer: If your version of HoloCure is newer than the mods, the game *will revert to an older version of the game.***
-## Demo
 
 ## Features :sparkles:
 
